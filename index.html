@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donovan López - Ingeniero en Sistemas | Especialista en Ciencias de Datos</title>
+    <meta name="description" content="Ingeniero en Sistemas Computacionales con especialización en Ciencias de Datos. Apasionado por machine learning y visualización de datos.">
+    
+    <!-- Metaetiquetas para redes sociales -->
+    <meta property="og:title" content="Donovan López - Ingeniero en Sistemas">
+    <meta property="og:description" content="Portafolio profesional de Donovan López - Ingeniero en Sistemas y Especialista en Ciencias de Datos">
+    <meta property="og:image" content="https://ejemplo.com/fototraje.jpg">
+    <meta property="og:url" content="https://donovan23082001.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables de colores para modo claro */
+        :root {
+            --color-primary: #0077b5;
+            --color-secondary: #FF6B35;
+            --color-background: #f4f4f9;
+            --color-surface: #ffffff;
+            --color-text: #333333;
+            --color-text-secondary: #666666;
+            --color-border: #dddddd;
+            --shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Variables de colores para modo oscuro */
+        [data-theme="dark"] {
+            --color-primary: #4db8ff;
+            --color-secondary: #ff8c66;
+            --color-background: #121212;
+            --color-surface: #1e1e1e;
+            --color-text: #e0e0e0;
+            --color-text-secondary: #a0a0a0;
+            --color-border: #333333;
+            --shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+        
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: var(--color-text);
+            background-color: var(--color-background);
+        }
+        
+        /* Botón de modo oscuro/claro */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-surface);
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+        
+        .theme-toggle i {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+        
+        /* Foto de perfil */
+        .foto-perfil {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            object-position: center 30%;
+            border: 3px solid var(--color-primary);
+            display: block;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .foto-perfil:hover {
+            transform: scale(1.03);
+        }
+        
+        h1 {
+            color: var(--color-primary);
+            margin: 15px 0 5px;
+            font-size: 2.2rem;
+        }
+        
+        header p {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* Secciones */
+        section {
+            margin: 30px 0;
+            padding: 25px;
+            background: var(--color-surface);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--color-border);
+        }
+        
+        section:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        h2 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Botón de CV */
+        .boton-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-secondary);
+            color: var(--color-surface);
+            padding: 12px 24px;
+            border-radius: 5px;
+            margin: 15px 0;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .boton-cv:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 107, 53, 0.3);
+            background: #e55a2b;
+        }
+        
+        /* Listas de contacto */
+        .contacto {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .contacto li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contacto i {
+            width: 30px;
+            color: var(--color-primary);
+            font-size: 1.2rem;
+        }
+        
+        .contacto a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .contacto a:hover {
+            color: var(--color-secondary);
+            text-decoration: underline;
+        }
+        
+        /* Habilidades */
+        .habilidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .habilidad {
+            text-align: center;
+            padding: 15px;
+            background: var(--color-surface);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--color-border);
+        }
+        
+        .habilidad:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .habilidad i {
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--color-text-secondary);
+            border-top: 1px solid var(--color-border);
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            .foto-perfil {
+                width: 170px;
+                height: 170px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .habilidades-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón de cambio de tema -->
+    <button class="theme-toggle" aria-label="Cambiar modo claro/oscuro">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header>
+        <img src="fototraje.jpg" alt="Foto profesional de Donovan López" class="foto-perfil">
+        <h1>Donovan López González</h1>
+        <p>Ingeniero en Sistemas Computacionales | Máster en Ciencias de Datos</p>
+    </header>
+
+    <section class="sobre-mi">
+        <h2><i class="fas fa-user-tie"></i> Sobre Mí</h2>
+        <p>
+            Ingeniero en Sistemas Computacionales con enfoque en <strong>Ciencias de Datos</strong>. 
+            Apasionado por transformar datos en insights accionables. Actualmente perfeccionando 
+            mis habilidades en machine learning y visualización de datos para resolver problemas complejos.
+        </p>
+        <p>
+            Mi objetivo es desarrollar soluciones tecnológicas innovadoras que tengan un impacto positivo 
+            en la sociedad a través del análisis de datos y la inteligencia artificial.
+        </p>
+    </section>
+
+    <section class="habilidades">
+        <h2><i class="fas fa-laptop-code"></i> Habilidades Técnicas</h2>
+        <div class="habilidades-grid">
+            <div class="habilidad">
+                <i class="fab fa-python fa-2x"></i>
+                <span>Python</span>
+            </div>
+            <div class="habilidad">
+                <i class="fas fa-database fa-2x"></i>
+                <span>SQL</span>
+            </div>
+            <div class="habilidad">
+                <i class="fab fa-html5 fa-2x"></i>
+                <span>HTML/CSS</span>
+            </div>
+            <div class="habilidad">
+                <i class="fas fa-chart-line fa-2x"></i>
+                <span>Data Science</span>
+            </div>
+            <div class="habilidad">
+                <i class="fas fa-brain fa-2x"></i>
+                <span>Machine Learning</span>
+            </div>
+            <div class="habilidad">
+                <i class="fas fa-table fa-2x"></i>
+                <span>Excel Avanzado</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-id-card"></i> Contacto</h2>
+        <ul class="contacto">
+            <!-- GitHub -->
+            <li>
+                <i class="fab fa-github"></i> 
+                <a href="https://github.com/Donovan23082001" target="_blank" rel="noopener noreferrer">
+                    GitHub.com/Donovan23082001
+                </a>
+            </li>
+            
+            <!-- LinkedIn -->
+            <li>
+                <i class="fab fa-linkedin"></i> 
+                <a href="https://www.linkedin.com/in/donovan-l%C3%B3pez-gonz%C3%A1lez-322373292" target="_blank" rel="noopener noreferrer">
+                    LinkedIn.com/in/donovan-lópez-gonzález
+                </a>
+            </li>
+            
+            <!-- Email -->
+            <li>
+                <i class="fas fa-envelope"></i> 
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=donovanlg08@gmail.com&su=Contacto%20desde%20Portafolio&body=Hola%20Donovan,%20me%20interesa%20ponerme%20en%20contacto%20contigo." 
+                   target="_blank" rel="noopener noreferrer">
+                    donovanlg08@gmail.com
+                </a>
+            </li>
+        </ul>
+        
+        <!-- Botón de CV -->
+        <a href="./CV_donovan.pdf" download="CV_Donovan_Lopez.pdf" class="boton-cv">
+            <i class="fas fa-file-pdf"></i> Descargar CV
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2025 Donovan López González. Todos los derechos reservados.</p>
+        <p>Desarrollado con HTML5, CSS3 y JavaScript</p>
+    </footer>
+
+    <script>
+        // Seleccionar el botón de toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Verificar preferencia guardada o del sistema
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Aplicar tema inicial
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        // Función para cambiar entre temas
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Event listener para el botón
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Verificación de que el PDF existe
+        document.querySelector('.boton-cv').addEventListener('click', function(e) {
+            console.log("Iniciando descarga del CV...");
+            
+            setTimeout(function() {
+                window.location.href = "./CV_donovan.pdf";
+            }, 100);
+        });
+        
+        // Notificación para email
+        document.querySelector('a[href*="mail.google.com"]').addEventListener('click', function() {
+            console.log("Abriendo Gmail...");
+        });
+    </script>
+</body>
+</html>
